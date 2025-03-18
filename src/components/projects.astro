@@ -1,38 +1,46 @@
 ---
 import { Image } from "astro:assets";
-import svgl from "../../public/svgl.png";
-import stockin from "../../public/stockin.png";
-import moviesfordevs from "../../public/moviesfordevs.png";
+import project1 from "../../public/svgl.png";
+import project2 from "../../public/stockin.png";
+import project3 from "../../public/moviesfordevs.png";
+import logbook from "../../public/logbook.png";
 
 interface Project {
   title: string;
   image: ImageMetadata;
-  link: string;
-  preview: string;
+  description: string;
   status: string;
+  link: string;
 }
 
 const projects: Project[] = [
   {
-    title: "MoviesForDevs",
-    image: moviesfordevs as ImageMetadata,
-    link: "https://github.com/gothsec/MoviesForDevs",
-    preview: "https://movies-for-devs.vercel.app",
-    status: "On Development",
+    title: "Logbook - Transcription Audio en Temps Réel",
+    image: logbook as ImageMetadata,
+    description: "Développement d'une transcription audio en temps réel pour Logbook lors d'un hackathon, incluant l'authentification des utilisateurs et la sauvegarde des audios et transcriptions. Ce projet offre une transcription instantanée du feedback audio des enseignants pendant l'enregistrement.",
+    status: "Projet Terminé",
+    link: "https://github.com/drewano",
   },
   {
-    title: "StockIn",
-    image: stockin as ImageMetadata,
-    link: "https://github.com/gothsec/stockin-demo",
-    preview: "https://stockin-demo.vercel.app",
-    status: "On Development",
+    title: "Application RAG pour la documentation",
+    image: project1 as ImageMetadata,
+    description: "Développement d'une application IA RAG permettant aux utilisateurs d'interroger leurs documents grâce à une pipeline hybride (vectoriel + full-text)",
+    status: "Projet Terminé",
+    link: "https://github.com/drewano/kotaemon",
   },
   {
-    title: "Svgl.app",
-    image: svgl as ImageMetadata,
-    link: "https://github.com/pheralb/svgl",
-    preview: "https://svgl.app",
-    status: "Contributor",
+    title: "Gestionnaire d'avis Google avec IA",
+    image: project2 as ImageMetadata,
+    description: "Conception d'une application IA pour la gestion des avis Google, automatisant la création de réponses personnalisées",
+    status: "En cours",
+    link: "https://github.com/drewano",
+  },
+  {
+    title: "Application IA pour les RH",
+    image: project3 as ImageMetadata,
+    description: "Création d'une application IA pour les RH intégrant un matching CV/offres, un chatbot RH et une synthèse automatisée des entretiens",
+    status: "En développement",
+    link: "https://github.com/drewano",
   },
 ];
 ---
@@ -42,78 +50,52 @@ const projects: Project[] = [
   class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
 >
   <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">My work</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projects</h3>
+    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mon travail</h2>
+    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projets</h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      {
-        projects.map((project) => (
-          <div class="group">
-            <a
-              href={project.preview}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="block"
-            >
-              <div class="rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 mb-4">
-                <Image
-                  src={project.image}
-                  alt={project.title}
-                  class="w-full h-48 md:h-72 object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+    <div class="projects-slider-container w-full mx-auto" style="max-width: 100%;">
+      <div class="swiper-container projects-slider h-full w-full">
+        <div class="swiper-wrapper">
+          {
+            projects.map((project) => (
+              <div class="swiper-slide">
+                <a href={project.link} target="_blank" rel="noopener noreferrer" class="block h-full w-full">
+                  <div class="project-card h-full w-full flex flex-col">
+                    <div class="project-image-container rounded-t-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex-grow-0 flex-shrink-0" style="height: 60%;">
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                    </div>
+                    <div class="project-content px-4 pt-4 flex-grow-1 flex-shrink-1" style="height: 40%;">
+                      <h4 class="text-xl md:text-2xl font-semibold hover:text-[var(--sec)] transition-colors line-clamp-1">{project.title}</h4>
+                      <span class="py-1 text-sm text-[var(--white-icon)]">
+                        {project.status}
+                      </span>
+                      <p class="text-[var(--white-icon)] mt-2 text-sm md:text-base line-clamp-3">
+                        {project.description}
+                      </p>
+                    </div>
+                  </div>
+                </a>
               </div>
-              <div class="flex items-center px-3">
-                <div class="flex-grow">
-                  <h4 class="text-2xl font-semibold">{project.title}</h4>
-                  <span class="py-1 text-sm text-[var(--white-icon)]">
-                    {project.status}
-                  </span>
-                </div>
-                <div class="flex gap-2 ml-auto">
-                  <a
-                    target="_blank"
-                    href={project.link}
-                    aria-label="GitHub"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
-                    >
-                      <path d="M24 12L18.3431 17.6569L16.9289 16.2426L21.1716 12L16.9289 7.75736L18.3431 6.34315L24 12ZM2.82843 12L7.07107 16.2426L5.65685 17.6569L0 12L5.65685 6.34315L7.07107 7.75736L2.82843 12ZM9.78845 21H7.66009L14.2116 3H16.3399L9.78845 21Z" />
-                    </svg>
-                  </a>
-                  <a
-                    target="_blank"
-                    href={project.preview}
-                    aria-label="Preview"
-                    class="size-14 flex justify-center items-center text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                      class="size-7"
-                    >
-                      <path d="M16.0037 9.41421L7.39712 18.0208L5.98291 16.6066L14.5895 8H7.00373V6H18.0037V17H16.0037V9.41421Z" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-            </a>
-          </div>
-        ))
-      }
+            ))
+          }
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-prev after:!text-lg md:flex hidden"></div>
+        <div class="swiper-button-next after:!text-lg md:flex hidden"></div>
+      </div>
     </div>
+    
     <a
       target="_blank"
-      href="https://github.com/Gothsec?tab=repositories"
-      aria-label="GitHub"
+      href="https://linkedin.com/in/andrew-assef/"
+      aria-label="LinkedIn"
       class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
     >
-      <span class="md:text-lg text-md">More projects on</span>
+      <span class="md:text-lg text-md">Plus d'informations sur</span>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -121,9 +103,191 @@ const projects: Project[] = [
         class="size-6"
       >
         <path
-          d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
+          d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"
         ></path>
       </svg>
     </a>
   </div>
 </section>
+
+<style>
+  .projects-slider-container {
+    position: relative;
+    margin: 2rem auto;
+    height: auto;
+  }
+  
+  .projects-slider {
+    position: relative;
+    border-radius: 1rem;
+    overflow: visible;
+    padding: 50px 0 70px;
+  }
+  
+  .projects-slider .swiper-slide {
+    border-radius: 1rem;
+    background-color: #1414149c;
+    border: 1px solid var(--white-icon-tr);
+    transition: all 0.3s ease;
+    overflow: hidden;
+    height: 550px;
+    max-height: 85vh;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    opacity: 0.5;
+    transform: scale(0.8);
+    aspect-ratio: 1/1;
+  }
+  
+  .projects-slider .swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 10;
+    border-color: var(--sec);
+    border-width: 2px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 15px var(--sec, #00ff41);
+  }
+  
+  .projects-slider .swiper-slide-prev,
+  .projects-slider .swiper-slide-next {
+    opacity: 0.7;
+    z-index: 5;
+    transform: scale(0.85);
+  }
+  
+  .projects-slider .swiper-slide:hover {
+    border-color: var(--sec);
+    transform: translateY(-5px) scale(0.9);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
+    opacity: 0.8;
+  }
+  
+  .projects-slider .swiper-slide-active:hover {
+    transform: translateY(-5px) scale(1.05);
+    opacity: 1;
+  }
+  
+  .project-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 0;
+    background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(20,20,20,0.95) 100%);
+  }
+  
+  .project-image-container {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .project-image-container::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: linear-gradient(to top, rgba(20,20,20,0.8), transparent);
+    z-index: 1;
+  }
+  
+  .projects-slider .swiper-button-prev,
+  .projects-slider .swiper-button-next {
+    color: var(--sec);
+    background-color: rgba(0,0,0,0.6);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    transform: translateY(-50%);
+  }
+  
+  .projects-slider .swiper-button-prev:hover,
+  .projects-slider .swiper-button-next:hover {
+    background-color: rgba(0,0,0,0.8);
+    transform: translateY(-50%) scale(1.1);
+  }
+  
+  .projects-slider .swiper-button-prev:after,
+  .projects-slider .swiper-button-next:after {
+    font-size: 1.2rem;
+  }
+  
+  .projects-slider .swiper-pagination-bullet {
+    background-color: var(--white-icon);
+    opacity: 0.5;
+  }
+  
+  .projects-slider .swiper-pagination-bullet-active {
+    background-color: var(--sec);
+    opacity: 1;
+  }
+  
+  .swiper-coverflow .swiper-wrapper {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const isMobile = window.innerWidth < 768;
+    
+    new Swiper('.projects-slider', {
+      slidesPerView: isMobile ? 1.2 : 3,
+      centeredSlides: true,
+      spaceBetween: isMobile ? 10 : 20,
+      initialSlide: 1,
+      loop: true,
+      effect: 'coverflow',
+      coverflowEffect: {
+        rotate: 0,
+        stretch: 0,
+        depth: 200,
+        modifier: 1,
+        slideShadows: false
+      },
+      autoplay: {
+        delay: 4000,
+        disableOnInteraction: false,
+        pauseOnMouseEnter: true
+      },
+      speed: 1000,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+        dynamicBullets: true
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+        enabled: !isMobile
+      },
+      grabCursor: true,
+      keyboard: {
+        enabled: true,
+      },
+      breakpoints: {
+        // when window width is >= 320px
+        320: {
+          slidesPerView: 1.2,
+          spaceBetween: 10
+        },
+        // when window width is >= 480px
+        480: {
+          slidesPerView: 1.5,
+          spaceBetween: 15
+        },
+        // when window width is >= 768px
+        768: {
+          slidesPerView: 2.2,
+          spaceBetween: 20
+        },
+        // when window width is >= 1024px
+        1024: {
+          slidesPerView: 3,
+          spaceBetween: 20
+        }
+      }
+    });
+  });
+</script>

@@ -1,0 +1,29 @@
+Dossier de Motivation
+Andrew Assef
+Développeur Intelligence Artificielle
+
+PRÉSENTATION
+Je suis Andrew Assef, un développeur spécialisé dans l'Intelligence Artificielle avec une passion pour la création de solutions technologiques innovantes.
+
+COMPÉTENCES
+• Développement de modèles d'apprentissage automatique
+• Programmation en Python, JavaScript, et TypeScript
+• Conception et déploiement d'applications web
+• Analyse de données et visualisation
+• Frameworks d'IA (TensorFlow, PyTorch)
+
+EXPÉRIENCE
+J'ai travaillé sur plusieurs projets impliquant des technologies d'IA avancées, en me concentrant sur l'application pratique de ces technologies dans des contextes professionnels.
+
+MOTIVATION
+Mon objectif est de mettre à profit mes compétences en développement et en IA pour créer des solutions qui répondent à des défis concrets. Je suis particulièrement intéressé par les projets qui visent à améliorer l'efficacité des processus grâce à l'intelligence artificielle.
+
+PROJETS PERSONNELS
+Vous pouvez consulter mes projets personnels sur mon portfolio et sur mon GitHub.
+
+CONTACT
+Pour toute question ou opportunité de collaboration, n'hésitez pas à me contacter par e-mail ou via LinkedIn.
+
+Email: example@example.com
+LinkedIn: linkedin.com/in/andrew-assef
+GitHub: github.com/drewano 
