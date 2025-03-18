@@ -59,16 +59,16 @@ const projects: Project[] = [
           {
             projects.map((project) => (
               <div class="swiper-slide">
-                <a href={project.link} target="_blank" rel="noopener noreferrer" class="block h-full w-full">
-                  <div class="project-card h-full w-full flex flex-col">
-                    <div class="project-image-container rounded-t-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex-grow-0 flex-shrink-0" style="height: 60%;">
-                      <Image
-                        src={project.image}
-                        alt={project.title}
-                        class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                      />
-                    </div>
-                    <div class="project-content px-4 pt-4 flex-grow-1 flex-shrink-1" style="height: 40%;">
+                <div class="project-card h-full w-full flex flex-col">
+                  <div class="project-image-container rounded-t-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex-grow-0 flex-shrink-0" style="height: 55%;">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                    />
+                  </div>
+                  <div class="project-content px-4 pt-4 pb-2 flex-grow-1 flex-shrink-1 flex flex-col justify-between" style="height: 45%;">
+                    <div>
                       <h4 class="text-xl md:text-2xl font-semibold hover:text-[var(--sec)] transition-colors line-clamp-1">{project.title}</h4>
                       <span class="py-1 text-sm text-[var(--white-icon)]">
                         {project.status}
@@ -77,15 +77,24 @@ const projects: Project[] = [
                         {project.description}
                       </p>
                     </div>
+                    <a 
+                      href={project.link} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      class="github-icon self-end p-2 text-[var(--white-icon)] hover:text-[var(--sec)] transition-colors duration-300"
+                      title="Voir sur GitHub"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                      </svg>
+                    </a>
                   </div>
-                </a>
+                </div>
               </div>
             ))
           }
         </div>
         <div class="swiper-pagination"></div>
-        <div class="swiper-button-prev after:!text-lg md:flex hidden"></div>
-        <div class="swiper-button-next after:!text-lg md:flex hidden"></div>
       </div>
     </div>
     
@@ -115,6 +124,7 @@ const projects: Project[] = [
     position: relative;
     margin: 2rem auto;
     height: auto;
+    width: 100%;
   }
   
   .projects-slider {
@@ -122,6 +132,8 @@ const projects: Project[] = [
     border-radius: 1rem;
     overflow: visible;
     padding: 50px 0 70px;
+    width: 100%;
+    max-width: 100%;
   }
   
   .projects-slider .swiper-slide {
@@ -133,37 +145,30 @@ const projects: Project[] = [
     height: 550px;
     max-height: 85vh;
     box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    opacity: 0.5;
-    transform: scale(0.8);
-    aspect-ratio: 1/1;
+    width: 100% !important;
+    opacity: 1;
+    aspect-ratio: 16/9;
   }
   
   .projects-slider .swiper-slide-active {
     opacity: 1;
-    transform: scale(1.05);
     z-index: 10;
+  }
+  
+  .projects-slider .swiper-slide-active:hover {
     border-color: var(--sec);
-    border-width: 2px;
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4), 0 0 15px var(--sec, #00ff41);
+    border-width: 1px;
+    box-shadow: 
+      0 10px 30px rgba(0,0,0,0.4),
+      0 0 2px var(--sec),
+      inset 0 0 2px var(--sec);
+    transform: translateY(-2px);
   }
   
   .projects-slider .swiper-slide-prev,
   .projects-slider .swiper-slide-next {
-    opacity: 0.7;
+    opacity: 0;
     z-index: 5;
-    transform: scale(0.85);
-  }
-  
-  .projects-slider .swiper-slide:hover {
-    border-color: var(--sec);
-    transform: translateY(-5px) scale(0.9);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.4);
-    opacity: 0.8;
-  }
-  
-  .projects-slider .swiper-slide-active:hover {
-    transform: translateY(-5px) scale(1.05);
-    opacity: 1;
   }
   
   .project-card {
@@ -177,6 +182,7 @@ const projects: Project[] = [
   .project-image-container {
     position: relative;
     overflow: hidden;
+    z-index: 1;
   }
   
   .project-image-container::after {
@@ -190,31 +196,28 @@ const projects: Project[] = [
     z-index: 1;
   }
   
+  .project-content {
+    padding: 1rem;
+    transform: translateZ(20px);
+    z-index: 1;
+  }
+  
+  .project-content h4 {
+    transform: translateZ(5px);
+  }
+  
+  .project-content p {
+    transform: translateZ(10px);
+  }
+  
   .projects-slider .swiper-button-prev,
   .projects-slider .swiper-button-next {
-    color: var(--sec);
-    background-color: rgba(0,0,0,0.6);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    transition: all 0.3s ease;
-    transform: translateY(-50%);
-  }
-  
-  .projects-slider .swiper-button-prev:hover,
-  .projects-slider .swiper-button-next:hover {
-    background-color: rgba(0,0,0,0.8);
-    transform: translateY(-50%) scale(1.1);
-  }
-  
-  .projects-slider .swiper-button-prev:after,
-  .projects-slider .swiper-button-next:after {
-    font-size: 1.2rem;
+    display: none;
   }
   
   .projects-slider .swiper-pagination-bullet {
-    background-color: var(--white-icon);
-    opacity: 0.5;
+    background-color: var(--sec);
+    opacity: 0.3;
   }
   
   .projects-slider .swiper-pagination-bullet-active {
@@ -226,25 +229,50 @@ const projects: Project[] = [
     padding-top: 20px;
     padding-bottom: 20px;
   }
+  
+  .card-flash {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0,255,65,0.4), transparent);
+    z-index: 10;
+    pointer-events: none;
+    animation: flashAnimation 0.8s forwards;
+  }
+  
+  @keyframes flashAnimation {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  .github-icon {
+    position: relative;
+    z-index: 3;
+  }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const isMobile = window.innerWidth < 768;
-    
+    // @ts-ignore
     new Swiper('.projects-slider', {
-      slidesPerView: isMobile ? 1.2 : 3,
+      slidesPerView: 1,
       centeredSlides: true,
-      spaceBetween: isMobile ? 10 : 20,
+      spaceBetween: 0,
       initialSlide: 1,
       loop: true,
-      effect: 'coverflow',
-      coverflowEffect: {
-        rotate: 0,
-        stretch: 0,
-        depth: 200,
-        modifier: 1,
-        slideShadows: false
+      effect: 'cube',
+      cubeEffect: {
+        shadow: true,
+        slideShadows: true,
+        shadowOffset: 20,
+        shadowScale: 0.94,
+        shadowColor: 'rgba(0, 255, 65, 0.2)'
       },
       autoplay: {
         delay: 4000,
@@ -257,35 +285,44 @@ const projects: Project[] = [
         clickable: true,
         dynamicBullets: true
       },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-        enabled: !isMobile
-      },
       grabCursor: true,
       keyboard: {
         enabled: true,
       },
       breakpoints: {
-        // when window width is >= 320px
         320: {
-          slidesPerView: 1.2,
-          spaceBetween: 10
+          slidesPerView: 1,
+          spaceBetween: 0
         },
-        // when window width is >= 480px
         480: {
-          slidesPerView: 1.5,
-          spaceBetween: 15
+          slidesPerView: 1,
+          spaceBetween: 0
         },
-        // when window width is >= 768px
         768: {
-          slidesPerView: 2.2,
-          spaceBetween: 20
+          slidesPerView: 1,
+          spaceBetween: 0
         },
-        // when window width is >= 1024px
         1024: {
-          slidesPerView: 3,
-          spaceBetween: 20
+          slidesPerView: 1,
+          spaceBetween: 0
+        }
+      }
+    });
+
+    const sliderContainer = document.querySelector('.projects-slider-container');
+    // @ts-ignore
+    const swiper = (document.querySelector('.projects-slider') as any).swiper;
+
+    sliderContainer.addEventListener('click', (e: MouseEvent) => {
+      const rect = sliderContainer.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const clickPosition = x / rect.width;
+
+      if (!(e.target as HTMLElement).closest('.project-card')) {
+        if (clickPosition > 0.5) {
+          swiper.slideNext();
+        } else {
+          swiper.slidePrev();
         }
       }
     });

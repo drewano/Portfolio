@@ -1,19 +1,16 @@
 ---
 const technologies = [
-  "astro",
   "react",
-  "typeScript",
-  "tailwindcss",
   "nodejs",
-  "HTML5",
-  "CSS3",
   "javaScript",
   "git",
-  "supabase",
   "mysql",
   "bash",
-  "openai",
+  "OpenAI SDK",
   "python",
+  "java",
+  "azure",
+  "n8n",
 ];
 ---
 
@@ -32,7 +29,7 @@ const technologies = [
       [...technologies, ...technologies, ...technologies].map((tech) => (
         <div class="flex items-center gap-2 group transition-all duration-300">
           <img
-            src={`/public/svg/${tech}.svg`}
+            src={`/svg/${tech}.svg`}
             alt={tech}
             class="h-7 w-auto object-contain transition-transform group-hover:scale-110 opacity-60"
             width="30"
