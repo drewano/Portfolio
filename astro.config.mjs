@@ -17,7 +17,13 @@ export default defineConfig({
   },
   output: 'static',
   build: {
-    inlineStylesheets: 'auto'
+    inlineStylesheets: 'auto',
+    assets: 'assets'
+  },
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
   },
   server: {
     host: true,

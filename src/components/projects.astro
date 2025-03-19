@@ -1,9 +1,10 @@
 ---
 import { Image } from "astro:assets";
-import project1 from "../../public/svgl.png";
-import project2 from "../../public/stockin.png";
-import project3 from "../../public/moviesfordevs.png";
 import logbook from "../../public/logbook.png";
+import gestionnotation from "../../public/gestionnotation.png";
+import javatpprojects from "../../public/javatpprojects.png";
+import docasis from "../../public/docasis.png";
+import avisgoogle from "../../public/avisgoogle.png";
 
 interface Project {
   title: string;
@@ -15,32 +16,39 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Logbook - Transcription Audio en Temps Réel",
+    title: "Java TP Projects",
+    image: javatpprojects as ImageMetadata,
+    description: "Collection de TPs et projets réalisés dans le cadre des cours 'Paradigme de programmation' et 'Programmation avancée' au Le Rebours/CNAM Paris.",
+    status: "Projet Terminé",
+    link: "https://github.com/drewano/java-tp-projects",
+  },
+  {
+    title: "Gestionnaire de Classe",
+    image: gestionnotation as ImageMetadata,
+    description: "Application web complète avec un backend Java/SpringBoot et un frontend React pour gérer les notes et devoirs des étudiants. Permet de créer des classes, matières, devoirs et de calculer les moyennes.",
+    status: "Projet Terminé",
+    link: "https://github.com/drewano/GestionNotation",
+  },
+  {
+    title: "Hackathon Agoranov x Logbook - Transcription Audio en Temps Réel",
     image: logbook as ImageMetadata,
-    description: "Développement d'une transcription audio en temps réel pour Logbook lors d'un hackathon, incluant l'authentification des utilisateurs et la sauvegarde des audios et transcriptions. Ce projet offre une transcription instantanée du feedback audio des enseignants pendant l'enregistrement.",
+    description: "Développement d'une transcription audio en temps réel pour Logbook lors d'un hackathon organisé par Agoranov, incluant l'authentification des utilisateurs et la sauvegarde des audios et transcriptions. Ce projet offre une transcription instantanée du feedback audio des enseignants pendant l'enregistrement.",
     status: "Projet Terminé",
-    link: "https://github.com/drewano",
+    link: "https://github.com/drewano/agoranov-hackathon",
   },
   {
-    title: "Application RAG pour la documentation",
-    image: project1 as ImageMetadata,
-    description: "Développement d'une application IA RAG permettant aux utilisateurs d'interroger leurs documents grâce à une pipeline hybride (vectoriel + full-text)",
+    title: "Docais - Application RAG pour questionner une base documentaire",
+    image: docasis as ImageMetadata,
+    description: "Fork d'une application IA RAG permettant aux utilisateurs d'interroger leurs documents grâce à une pipeline hybride (vectoriel + full-text)",
     status: "Projet Terminé",
-    link: "https://github.com/drewano/kotaemon",
+    link: "https://github.com/drewano/docasis",
   },
   {
-    title: "Gestionnaire d'avis Google avec IA",
-    image: project2 as ImageMetadata,
+    title: "AFPA Google - Automatisation d'avis Google avec IA",
+    image: avisgoogle as ImageMetadata,
     description: "Conception d'une application IA pour la gestion des avis Google, automatisant la création de réponses personnalisées",
-    status: "En cours",
-    link: "https://github.com/drewano",
-  },
-  {
-    title: "Application IA pour les RH",
-    image: project3 as ImageMetadata,
-    description: "Création d'une application IA pour les RH intégrant un matching CV/offres, un chatbot RH et une synthèse automatisée des entretiens",
-    status: "En développement",
-    link: "https://github.com/drewano",
+    status: "En prototypage",
+    link: "https://github.com/drewano/AvisGoogle",
   },
 ];
 ---
