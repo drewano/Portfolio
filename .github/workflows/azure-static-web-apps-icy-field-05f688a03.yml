@@ -1,4 +1,4 @@
-name: Azure Static Web Apps CI/CD
+name: Azure Static Web Apps CI/CD (OIDC Auth)
 
 on:
   push:
@@ -13,9 +13,9 @@ jobs:
   build_and_deploy_job:
     if: github.event_name == 'push' || (github.event_name == 'pull_request' && github.event.action != 'closed')
     runs-on: ubuntu-latest
-    name: Build and Deploy Job
+    name: Build and Deploy Job (OIDC)
     permissions:
-       # id-token: write # Moins critique si vous utilisez le token API
+       id-token: write # ESSENTIEL pour OIDC
        contents: read
     steps:
       - uses: actions/checkout@v3
@@ -23,20 +23,20 @@ jobs:
           submodules: true
           lfs: false
 
-      # Les étapes OIDC manuelles sont supprimées car inutiles avec le token API
+      # PAS D'ETAPES OIDC MANUELLES
+      # PAS DE TOKEN API FOURNI
 
       - name: Build And Deploy
         id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # C'est ici que le token VALIDE doit être fourni
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_FIELD_05F688A03 }}
+          # azure_static_web_apps_api_token EST SUPPRIMÉ
+          # L'action utilisera les permissions id-token pour s'authentifier
           action: "upload"
           app_location: "/"
           api_location: ""
-          output_location: "dist" # Correct pour Astro
-          # github_id_token supprimé car redondant avec le token API
-        env: # Gardez ceci pour vos variables frontend Firebase
+          output_location: "dist"
+        env: # Variables frontend toujours nécessaires
           VITE_FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
           PUBLIC_FIREBASE_APP_ID: ${{ secrets.PUBLIC_FIREBASE_APP_ID }}
           PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.PUBLIC_FIREBASE_AUTH_DOMAIN }}
@@ -47,12 +47,14 @@ jobs:
   close_pull_request_job:
     if: github.event_name == 'pull_request' && github.event.action == 'closed'
     runs-on: ubuntu-latest
-    name: Close Pull Request Job
+    name: Close Pull Request Job (OIDC)
+    permissions:
+       id-token: write # Peut aussi être nécessaire pour 'close' avec OIDC
+       contents: read  # Au cas où l'action en aurait besoin
     steps:
-      - name: Close Pull Request Job # Nom simplifié
+      - name: Close Pull Request
         id: closepullrequest
         uses: Azure/static-web-apps-deploy@v1
         with:
-          # Ajout du token ici aussi pour plus de fiabilité
-          azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_ICY_FIELD_05F688A03 }}
+          # PAS DE TOKEN API
           action: "close"
