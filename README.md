@@ -4,7 +4,7 @@ Bienvenue sur le dépôt de mon portfolio personnel. Ce projet a été conçu po
 
 **[Visiter le portfolio](https://drewano.me/)** 
 
-![Aperçu du Portfolio](public/images/profile.jpg)
+![Aperçu du Portfolio]()
 
 ## ✨ Fonctionnalités Principales
 
