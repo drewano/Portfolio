@@ -4,7 +4,7 @@ Bienvenue sur le dépôt de mon portfolio personnel. Ce projet a été conçu po
 
 **[Visiter le portfolio](https://drewano.me/)** 
 
-![Aperçu du Portfolio]()
+![Aperçu du Portfolio](https://github.com/drewano/Portfolio/blob/main/Capture%20d'%C3%A9cran%202025-06-08%20161943.png)
 
 ## ✨ Fonctionnalités Principales
 
