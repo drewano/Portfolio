@@ -1,338 +1,79 @@
 ---
-import { Image } from "astro:assets";
-import logbook from "../../public/logbook.png";
-import gestionnotation from "../../public/gestionnotation.png";
-import javatpprojects from "../../public/javatpprojects.png";
-import docasis from "../../public/docasis.png";
-import avisgoogle from "../../public/avisgoogle.png";
-
 interface Project {
   title: string;
-  image: ImageMetadata;
   description: string;
-  status: string;
   link: string;
+  tech?: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Java TP Projects",
-    image: javatpprojects as ImageMetadata,
-    description: "Collection de TPs et projets réalisés dans le cadre des cours 'Paradigme de programmation' et 'Programmation avancée' au Le Rebours/CNAM Paris.",
-    status: "Projet Terminé",
-    link: "https://github.com/drewano/java-tp-projects",
+    title: "autoads",
+    description: "Transform your website into AI-generated video ads. Paste a URL, write a prompt, get a video.",
+    link: "https://autoads.pro",
+    tech: "Next.js, Python, AI"
   },
   {
-    title: "Gestionnaire de Classe",
-    image: gestionnotation as ImageMetadata,
-    description: "Application web complète avec un backend Java/SpringBoot et un frontend React pour gérer les notes et devoirs des étudiants. Permet de créer des classes, matières, devoirs et de calculer les moyennes.",
-    status: "Projet Terminé",
-    link: "https://github.com/drewano/GestionNotation",
+    title: "dodai",
+    description: "Open-source browser extension that turns your browser into a second brain, powered by local AI with Ollama.",
+    link: "https://github.com/drewano/dodai",
+    tech: "TypeScript, Ollama"
   },
   {
-    title: "Hackathon Agoranov x Logbook - Transcription Audio en Temps Réel",
-    image: logbook as ImageMetadata,
-    description: "Développement d'une transcription audio en temps réel pour Logbook lors d'un hackathon organisé par Agoranov, incluant l'authentification des utilisateurs et la sauvegarde des audios et transcriptions. Ce projet offre une transcription instantanée du feedback audio des enseignants pendant l'enregistrement.",
-    status: "Projet Terminé",
-    link: "https://github.com/drewano/agoranov-hackathon",
+    title: "France-GPT",
+    description: "Collection of AI agents using French government APIs (Legifrance, INSEE, Data.Inclusion) as MCP tools.",
+    link: "https://github.com/drewano/France-GPT",
+    tech: "Python, MCP"
   },
   {
-    title: "Docasis - Application RAG pour questionner une base documentaire",
-    image: docasis as ImageMetadata,
-    description: "Fork d'une application IA RAG permettant aux utilisateurs d'interroger leurs documents grâce à une pipeline hybride (vectoriel + full-text)",
-    status: "Projet Terminé",
-    link: "https://github.com/drewano/docasis",
-  },
-  {
-    title: "AFPA Google - Automatisation d'avis Google avec IA",
-    image: avisgoogle as ImageMetadata,
-    description: "Conception d'une application IA pour la gestion des avis Google, automatisant la création de réponses personnalisées",
-    status: "En prototypage",
-    link: "https://github.com/drewano/AvisGoogle",
+    title: "docasis-proto",
+    description: "Complete RAG pipeline with Gemini, Qdrant and Streamlit to create a conversational agent for your knowledge base.",
+    link: "https://github.com/drewano/docasis-proto",
+    tech: "Python, Qdrant, Gemini"
   },
 ];
 ---
 
-<section
-  id="projects"
-  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
->
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mon travail</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Projets</h3>
+<section id="projects" class="mb-32">
+  <h2 class="text-4xl md:text-5xl font-serif font-medium mb-16 text-white tracking-tight">Selected Works</h2>
 
-    <div class="projects-slider-container w-full mx-auto" style="max-width: 100%;">
-      <div class="swiper-container projects-slider h-full w-full">
-        <div class="swiper-wrapper">
-          {
-            projects.map((project) => (
-              <div class="swiper-slide">
-                <div class="project-card h-full w-full flex flex-col">
-                  <div class="project-image-container rounded-t-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex-grow-0 flex-shrink-0" style="height: 55%;">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
-                    />
-                  </div>
-                  <div class="project-content px-4 pt-4 pb-2 flex-grow-1 flex-shrink-1 flex flex-col justify-between" style="height: 45%;">
-                    <div>
-                      <h4 class="text-xl md:text-2xl font-semibold hover:text-[var(--sec)] transition-colors line-clamp-1">{project.title}</h4>
-                      <span class="py-1 text-sm text-[var(--white-icon)]">
-                        {project.status}
-                      </span>
-                      <p class="text-[var(--white-icon)] mt-2 text-sm md:text-base line-clamp-3">
-                        {project.description}
-                      </p>
-                    </div>
-                    <a 
-                      href={project.link} 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      class="github-icon self-end p-2 text-[var(--white-icon)] hover:text-[var(--sec)] transition-colors duration-300"
-                      title="Voir sur GitHub"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-7">
-                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            ))
-          }
-        </div>
-        <div class="swiper-pagination"></div>
-      </div>
-    </div>
-    
+  <div class="space-y-20">
+    {
+      projects.map((project, index) => (
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="block group relative"
+        >
+          <div class="flex flex-col md:flex-row gap-8 items-start md:items-end pb-8 border-b border-neutral-800 transition-colors duration-500 group-hover:border-neutral-600">
+             <div class="w-full md:w-1/4">
+                <span class="text-xs font-mono text-neutral-500 tracking-widest">0{index + 1}</span>
+             </div>
+
+             <div class="w-full md:w-2/4">
+                <h3 class="text-3xl font-serif font-medium text-neutral-200 group-hover:text-white transition-colors mb-2">{project.title}</h3>
+                <p class="text-neutral-500 font-light leading-relaxed max-w-md">{project.description}</p>
+             </div>
+
+             <div class="w-full md:w-1/4 text-right">
+                <span class="text-xs font-mono text-neutral-600 uppercase tracking-wider group-hover:text-neutral-400 transition-colors">{project.tech}</span>
+             </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+
+  <div class="mt-16 text-center">
     <a
+      href="https://github.com/drewano"
       target="_blank"
-      href="https://linkedin.com/in/andrew-assef/"
-      aria-label="LinkedIn"
-      class="w-full flex items-center justify-center gap-2 mt-9 text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-[var(--white-icon-tr)] p-3 rounded-full bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
+      aria-label="View Archive on GitHub"
+      class="inline-block text-neutral-500 hover:text-white transition-colors"
     >
-      <span class="md:text-lg text-md">Plus d'informations sur</span>
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24"
-        fill="currentColor"
-        class="size-6"
-      >
-        <path
-          d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"
-        ></path>
-      </svg>
+      <svg role="img" viewBox="0 0 24 24" class="w-8 h-8 fill-current mx-auto" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+      <span class="block mt-2 text-xs uppercase tracking-widest opacity-60">Archive</span>
     </a>
   </div>
 </section>
-
-<style>
-  .projects-slider-container {
-    position: relative;
-    margin: 2rem auto;
-    height: auto;
-    width: 100%;
-  }
-  
-  .projects-slider {
-    position: relative;
-    border-radius: 1rem;
-    overflow: visible;
-    padding: 50px 0 70px;
-    width: 100%;
-    max-width: 100%;
-  }
-  
-  .projects-slider .swiper-slide {
-    border-radius: 1rem;
-    background-color: #1414149c;
-    border: 1px solid var(--white-icon-tr);
-    transition: all 0.3s ease;
-    overflow: hidden;
-    height: 550px;
-    max-height: 85vh;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-    width: 100% !important;
-    opacity: 1;
-    aspect-ratio: 16/9;
-  }
-  
-  .projects-slider .swiper-slide-active {
-    opacity: 1;
-    z-index: 10;
-  }
-  
-  .projects-slider .swiper-slide-active:hover {
-    border-color: var(--sec);
-    border-width: 1px;
-    box-shadow: 
-      0 10px 30px rgba(0,0,0,0.4),
-      0 0 2px var(--sec),
-      inset 0 0 2px var(--sec);
-    transform: translateY(-2px);
-  }
-  
-  .projects-slider .swiper-slide-prev,
-  .projects-slider .swiper-slide-next {
-    opacity: 0;
-    z-index: 5;
-  }
-  
-  .project-card {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-    padding: 0;
-    background: linear-gradient(180deg, rgba(20,20,20,0.8) 0%, rgba(20,20,20,0.95) 100%);
-  }
-  
-  .project-image-container {
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
-  }
-  
-  .project-image-container::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-    background: linear-gradient(to top, rgba(20,20,20,0.8), transparent);
-    z-index: 1;
-  }
-  
-  .project-content {
-    padding: 1rem;
-    transform: translateZ(20px);
-    z-index: 1;
-  }
-  
-  .project-content h4 {
-    transform: translateZ(5px);
-  }
-  
-  .project-content p {
-    transform: translateZ(10px);
-  }
-  
-  .projects-slider .swiper-button-prev,
-  .projects-slider .swiper-button-next {
-    display: none;
-  }
-  
-  .projects-slider .swiper-pagination-bullet {
-    background-color: var(--sec);
-    opacity: 0.3;
-  }
-  
-  .projects-slider .swiper-pagination-bullet-active {
-    background-color: var(--sec);
-    opacity: 1;
-  }
-  
-  .swiper-coverflow .swiper-wrapper {
-    padding-top: 20px;
-    padding-bottom: 20px;
-  }
-  
-  .card-flash {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0,255,65,0.4), transparent);
-    z-index: 10;
-    pointer-events: none;
-    animation: flashAnimation 0.8s forwards;
-  }
-  
-  @keyframes flashAnimation {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;
-    }
-  }
-
-  .github-icon {
-    position: relative;
-    z-index: 3;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // @ts-ignore
-    new Swiper('.projects-slider', {
-      slidesPerView: 1,
-      centeredSlides: true,
-      spaceBetween: 0,
-      initialSlide: 1,
-      loop: true,
-      effect: 'cube',
-      cubeEffect: {
-        shadow: true,
-        slideShadows: true,
-        shadowOffset: 20,
-        shadowScale: 0.94,
-        shadowColor: 'rgba(0, 255, 65, 0.2)'
-      },
-      autoplay: {
-        delay: 4000,
-        disableOnInteraction: false,
-        pauseOnMouseEnter: true
-      },
-      speed: 1000,
-      pagination: {
-        el: '.swiper-pagination',
-        clickable: true,
-        dynamicBullets: true
-      },
-      grabCursor: true,
-      keyboard: {
-        enabled: true,
-      },
-      breakpoints: {
-        320: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        },
-        480: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        },
-        768: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        },
-        1024: {
-          slidesPerView: 1,
-          spaceBetween: 0
-        }
-      }
-    });
-
-    const sliderContainer = document.querySelector('.projects-slider-container');
-    // @ts-ignore
-    const swiper = (document.querySelector('.projects-slider') as any).swiper;
-
-    sliderContainer.addEventListener('click', (e: MouseEvent) => {
-      const rect = sliderContainer.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const clickPosition = x / rect.width;
-
-      if (!(e.target as HTMLElement).closest('.project-card')) {
-        if (clickPosition > 0.5) {
-          swiper.slideNext();
-        } else {
-          swiper.slidePrev();
-        }
-      }
-    });
-  });
-</script>

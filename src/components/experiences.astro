@@ -1,66 +1,100 @@
-<section
-  id="experience"
-  class="py-12 border-t border-[#ffffff10] text-[var(--white)]"
->
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Mon parcours</h2>
-    <h3 class="text-4xl md:text-5xl font-medium mb-8">Expériences Professionnelles</h3>
-    <p class="text-[var(--white-icon)] mb-6 max-w-2xl">Actuellement en alternance jusqu'à août 2025, je suis à la <span class="text-[var(--sec)] font-semibold">recherche d'une alternance pour septembre 2025</span> pour mon Master en Intelligence Artificielle.</p>
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="bg-[#1414149c] p-5 rounded-xl border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 relative group">
-        <div class="absolute -top-3 -right-3 bg-[var(--sec)] text-white px-2 py-1 rounded-full text-xs font-semibold">
-          Actuel
-        </div>
-        <h4 class="text-xl font-semibold group-hover:text-[var(--sec)] transition-colors">Développeur en Intelligence Artificielle</h4>
-        <p class="text-[var(--white-icon)] text-sm mt-1">AFPA | Septembre 2024 - Septembre 2025 | Montreuil</p>
-        <ul class="text-[var(--white-icon)] mt-2 list-disc pl-5 space-y-1">
-          <li>Application IA pour la gestion documentaire : Développement d'une solution RAG hybride (vectoriel + full-text), améliorant l'accès aux informations</li>
-          <li>Automatisation des avis clients : Création d'une application IA pour optimiser et personnaliser les réponses aux avis Google</li>
-          <li>Optimisation RH avec l'IA : Conception d'un outil intégrant matching CV/offres, chatbot RH et synthèse d'entretiens</li>
-          <li>Formation et vulgarisation : Animation d'ateliers IA générative pour +50 collaborateurs</li>
-        </ul>
-      </div>
-      <div class="bg-[#1414149c] p-5 rounded-xl border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 group">
-        <h4 class="text-xl font-semibold group-hover:text-[var(--sec)] transition-colors">Technicien Support Informatique</h4>
-        <p class="text-[var(--white-icon)] text-sm mt-1">Careside | Septembre 2022 - Août 2024 | Paris</p>
-        <ul class="text-[var(--white-icon)] mt-2 list-disc pl-5 space-y-1">
-          <li>Gestion des appareils mobiles : Déploiement d'un outil de supervision pour +500 équipements, améliorant la réactivité du support</li>
-          <li>Optimisation IT & Réseau : Réduction des coûts télécoms et mise en place de la fibre & 5G, renforçant la fiabilité du réseau</li>
-          <li>Automatisation des tâches : Développement de scripts PowerShell, Bash et Python, accélérant les processus IT</li>
-          <li>Support & Formation : Gestion des tickets niveau 2 et 3, accompagnement des équipes sur les nouvelles solutions</li>
-        </ul>
-      </div>
+---
+interface Experience {
+  title: string;
+  company: string;
+  period: string;
+  description: string;
+  current?: boolean;
+}
+
+const experiences: Experience[] = [
+  {
+    title: "AI & Data Project Engineer",
+    company: "Renault Group",
+    period: "Sept 2025 – Present",
+    description: "Full-stack web app for automated technical offer analysis with Generative AI.",
+    current: true
+  },
+  {
+    title: "Co-founder",
+    company: "autoads",
+    period: "Oct 2025 – Present",
+    description: "AI-powered video ad generation from website URLs. 300+ users in 48 hours after launch.",
+    current: true
+  },
+  {
+    title: "AI Developer",
+    company: "AFPA",
+    period: "Sept 2024 – Aug 2025",
+    description: "RAG applications, Google reviews automation, AI training for 100+ employees."
+  },
+  {
+    title: "IT Support Technician",
+    company: "Careside",
+    period: "Sept 2022 – Aug 2024",
+    description: "MDM deployment for 500+ devices, PowerShell automation, network configuration."
+  },
+];
+
+interface Education {
+  degree: string;
+  school: string;
+  period: string;
+}
+
+const education: Education[] = [
+  {
+    degree: "Engineering Degree in AI",
+    school: "ESIEA",
+    period: "2025 – 2028"
+  },
+  {
+    degree: "Bachelor's in Computer Science",
+    school: "CNAM Paris",
+    period: "2024 – 2025"
+  },
+];
+---
+
+<section id="experience" class="mb-32">
+  <div class="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-24">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-serif font-medium text-white tracking-tight sticky top-24">Experience</h2>
     </div>
 
-    <div class="mt-12">
-      <h3 class="text-2xl md:text-3xl font-medium mb-4">Formations & Certifications</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div class="bg-[#1414149c] p-5 rounded-xl border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 group relative">
-          <div class="absolute -top-3 -right-3 bg-[#0d9e69] text-white px-2 py-1 rounded-full text-xs font-semibold">
-            En recherche
+    <div class="space-y-16">
+      {
+        experiences.map((exp) => (
+          <div class="group">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+              <h3 class="text-2xl font-serif text-neutral-200">{exp.company}</h3>
+              <span class="text-sm font-mono text-neutral-500">{exp.period}</span>
+            </div>
+            <p class="text-lg text-white mb-2 font-light">{exp.title}</p>
+            <p class="text-neutral-400 font-light leading-relaxed max-w-lg">{exp.description}</p>
           </div>
-          <h4 class="text-xl font-semibold group-hover:text-[var(--sec)] transition-colors">Master en Intelligence Artificielle</h4>
-          <p class="text-[var(--white-icon)] text-sm mt-1">En recherche d'un master | 2025-2027 | Paris</p>
-          <p class="text-[var(--white-icon)] mt-2">
-            Spécialisation en intelligence artificielle, traitement du langage naturel et apprentissage automatique
-          </p>
-        </div>
-        <div class="bg-[#1414149c] p-5 rounded-xl border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 group">
-          <h4 class="text-xl font-semibold group-hover:text-[var(--sec)] transition-colors">Licence en Informatique</h4>
-          <p class="text-[var(--white-icon)] text-sm mt-1">CNAM Paris / Lycée Le Rebours | 2024-2025</p>
-          <p class="text-[var(--white-icon)] mt-2">
-            Spécialisation en développement, intelligence artificielle et Big Data
-          </p>
-        </div>
-        <div class="bg-[#1414149c] p-5 rounded-xl border border-[var(--white-icon-tr)] hover:border-[var(--sec)] transition-all duration-300 group">
-          <h4 class="text-xl font-semibold group-hover:text-[var(--sec)] transition-colors">BTS Services Informatiques aux Organisations - SLAM</h4>
-          <p class="text-[var(--white-icon)] text-sm mt-1">CFA INSTA | 2022-2024</p>
-          <p class="text-[var(--white-icon)] mt-2">
-            Développement d'applications web et mobiles, gestion de bases de données, et gestion de projets informatiques
-          </p>
-        </div>
-      </div>
+        ))
+      }
     </div>
   </div>
-</section> 
+
+  <div class="grid md:grid-cols-[1fr_2fr] gap-12 md:gap-24 mt-24">
+    <div>
+      <h2 class="text-4xl md:text-5xl font-serif font-medium text-white tracking-tight sticky top-24">Education</h2>
+    </div>
+
+    <div class="space-y-12">
+      {
+        education.map((edu) => (
+          <div class="group border-b border-neutral-800 pb-8 last:border-0">
+            <div class="flex flex-col sm:flex-row sm:items-baseline justify-between mb-2">
+              <h3 class="text-xl font-serif text-neutral-200">{edu.school}</h3>
+              <span class="text-sm font-mono text-neutral-500">{edu.period}</span>
+            </div>
+            <p class="text-neutral-400 font-light">{edu.degree}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

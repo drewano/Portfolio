@@ -1,102 +1,29 @@
-<section id="contact" class="w-full py-12 border-t border-[#ffffff10]">
-  <div class="max-w-5xl mx-auto">
-    <h2 class="text-lg text-[var(--sec)] mb-2 shiny-sec">Discutons</h2>
-    <h3 class="text-4xl md:text-5xl font-medium text-[var(--white)] mb-6">
-      Contact
-    </h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-      <div class="text-[var(--white-icon)]">
-        <p class="mb-4">
-          Vous avez un projet IA ou une opportunité de collaboration ? N'hésitez pas à me contacter.
-        </p>
-        <div class="flex items-center gap-2">
-          <span>Localisation:</span>
-          <span class="text-[var(--white)]">Île-de-France, France</span>
-        </div>
-        <div class="mt-4">
-          <h4 class="text-xl text-[var(--white)] mb-2">Domaines d'expertise</h4>
-          <ul class="list-disc pl-5 space-y-1">
-            <li>Développement d'applications IA</li>
-            <li>Systèmes RAG (Retrieval-Augmented Generation)</li>
-            <li>Fine-tuning de modèles LLM</li>
-            <li>Chatbots et assistants virtuels</li>
-            <li>Formation et sensibilisation à l'IA</li>
-          </ul>
-        </div>
-      </div>
+<section id="contact" class="mb-32">
+  <div class="border-t border-neutral-800 pt-24 text-center">
+    <h2 class="text-4xl md:text-6xl font-serif font-medium text-white mb-8 tracking-tight">Let's connect.</h2>
+    <p class="text-xl text-neutral-400 font-light mb-12 max-w-2xl mx-auto">
+      Always open to discussing new ideas, AI challenges, or just having a chat about the future of tech.
+    </p>
 
-      <div>
-        <form
-          id="contact-form"
-          action="https://formspree.io/f/xblgdyov"
-          method="POST"
-          class="flex flex-col gap-4"
-        >
-          <input
-            type="text"
-            name="from_name"
-            placeholder="Nom"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
-          />
-          <input
-            type="email"
-            name="reply_to"
-            placeholder="Email"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)]"
-          />
-          <textarea
-            name="message"
-            placeholder="Message"
-            rows="6"
-            required
-            class="px-4 py-2 bg-[#1414149c] text-[var(--white)] border border-[var(--white-icon-tr)] rounded-lg focus:outline-none focus:ring-2 focus:ring-[var(--sec)] resize-none"
-          ></textarea>
-          <button
-            type="submit"
-            class="px-4 py-2 bg-[var(--white-icon-tr)] text-[var(--white)] rounded-lg opacity-60 transition-opacity border border-[var(--white-icon-tr)] hover:opacity-100 hover:bg-[var(--white-icon-tr)]"
-          >
-            Envoyer
-          </button>
-        </form>
-        <div
-          id="form-message"
-          class="hidden justify-center items-center mt-4 text-[var(--white)] text-lg"
-        >
-          ✅ Merci pour votre message !
-        </div>
+    <div class="inline-flex flex-col items-center gap-8">
+      <a
+        href="mailto:assef.andrew@gmail.com"
+        class="text-2xl md:text-3xl font-light text-white hover:text-neutral-400 transition-colors border-b border-white hover:border-neutral-400 pb-2"
+      >
+        assef.andrew@gmail.com
+      </a>
+
+      <div class="flex gap-8 mt-4">
+        <a href="https://linkedin.com/in/andrew-assef/" target="_blank" aria-label="LinkedIn" class="text-neutral-500 hover:text-white transition-colors">
+          <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://github.com/drewano" target="_blank" aria-label="GitHub" class="text-neutral-500 hover:text-white transition-colors">
+          <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://huggingface.co/drewano" target="_blank" aria-label="Hugging Face" class="text-neutral-500 hover:text-white transition-colors">
+           <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M7.74 3.006a2.25 2.25 0 0 1 2.25 2.25v2.22l.535.536a2.25 2.25 0 0 1 .659 1.59v.505a4.5 4.5 0 0 0 1.632 3.473c.448.365.455.776.455.776l.004.813c.896-.282 2.296-1.026 3.016-2.61a2.25 2.25 0 0 0-.256-2.45l-.75-.75h2.249a2.25 2.25 0 0 1 2.25 2.25v2.544l.805.402a2.25 2.25 0 0 1 1.244 2.012v.16a6.76 6.76 0 0 1-2.583 5.342l-.46.345a2.25 2.25 0 0 0-.9 1.8v1.642a2.25 2.25 0 0 1-2.25 2.25h-1.396a2.25 2.25 0 0 0-2.25 2.25v.754a2.25 2.25 0 0 1-2.25 2.25H11.25a2.25 2.25 0 0 1-2.25-2.25v-.754a2.25 2.25 0 0 0-2.25-2.25H5.354a2.25 2.25 0 0 1-2.25-2.25v-1.642a2.25 2.25 0 0 0-.9-1.8l-.46-.345A6.76 6.76 0 0 1-.84 16.592v-.16a2.25 2.25 0 0 1 1.243-2.012l.806-.403V11.473a2.25 2.25 0 0 1 2.25-2.25h2.25l-.75.75a2.25 2.25 0 0 0-.257 2.45c.72 1.584 2.12 2.328 3.016 2.61l.004-.813s.007-.41.455-.776A4.5 4.5 0 0 0 9.81 10.02v-.505a2.25 2.25 0 0 1 .66-1.591l.534-.536v-2.133a2.25 2.25 0 0 1 2.25-2.25Zm4.872 7.822c-1.352 0-2.448 1.096-2.448 2.448s1.096 2.448 2.448 2.448 2.448-1.096 2.448-2.448-1.096-2.448-2.448-2.448ZM7.995 15.356c.783 0 1.419.636 1.419 1.42s-.636 1.419-1.42 1.419-1.419-.636-1.419-1.419.636-1.42 1.42-1.42Zm8.01 0c.784 0 1.42.636 1.42 1.42s-.636 1.419-1.42 1.419-1.419-.636-1.419-1.419.635-1.42 1.419-1.42Z"/></svg>
+        </a>
       </div>
     </div>
   </div>
 </section>
-
-<script type="module" is:inline>
-  const form = document.getElementById("contact-form");
-  const formMessage = document.getElementById("form-message");
-
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const formData = new FormData(form);
-
-    try {
-      const response = await fetch(form.action, {
-        method: "POST",
-        body: formData,
-        headers: { Accept: "application/json" },
-      });
-      if (response.ok) {
-        form.reset();
-        form.style.display = "none";
-        formMessage.classList.remove("hidden");
-      } else {
-        const data = await response.json();
-        console.error("Error response:", data);
-        alert("Il y a eu un problème lors de l'envoi de votre message.");
-      }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Il y a eu un problème lors de l'envoi de votre message.");
-    }
-  });
-</script>

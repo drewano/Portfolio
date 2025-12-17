@@ -1,231 +1,53 @@
 ---
-import LetterGlitch from "../React/LetterGlitch.tsx";
-import LogoWall from "../components/logoWall.astro";
-import SkillsList from "../React/SkillsList.tsx";
 import { Image } from "astro:assets";
-import profileImage from "../../public/images/profile.jpg";
-import asciImage from "../../public/images/asciworld.png";
-import cursorImage from "../../public/cursor.png";
+import profileImage from "../../public/images/profile-manga.jpeg";
 ---
 
-<section class="text-[var(--white)] mt-12 md:mt-0" id="home">
-  <div class="max-w-5xl mx-auto space-y-8 md:py-28 pb-14">
-    <div class="flex flex-col md:flex-row md:items-center gap-8">
-      <div id="profile-container" class="w-48 h-48 md:w-64 md:h-64 rounded-full overflow-visible border-4 border-[var(--sec)] mx-auto md:mx-0 relative group cursor-pointer">
-        <Image 
-          id="profile-image"
-          src={profileImage}
-          alt="Photo de profil" 
-          class="w-full h-full object-cover rounded-full"
-        />
-        <Image 
-          id="asci-image"
-          src={asciImage}
-          alt="Photo alternative" 
-          class="w-full h-full object-cover rounded-full hidden"
-        />
-        <Image 
-          src={cursorImage}
-          alt="Cursor" 
-          class="absolute bottom-1 right-1 w-12 md:w-16 z-10 transform translate-x-4 translate-y-4 md:translate-x-6 md:translate-y-6 rotate-12 group-hover:scale-110 transition-transform duration-300"
-        />
-      </div>
-      <div class="text-left space-y-4 flex-1">
-        <p id="greeting" class="text-md md:text-lg text-[var(--white-icon)] shiny-white">
-          Bonjour, je suis <span class="text-[var(--sec)]">Andrew Assef</span>
+<section id="home" class="mb-24 pt-12">
+  <div class="flex flex-col md:flex-row gap-12 items-start">
+    <div class="w-full md:w-2/3">
+      <h1 class="text-6xl md:text-8xl font-serif font-medium leading-[0.9] tracking-tighter mb-8 text-foreground">
+        Andrew <br/>
+        <span class="text-neutral-500 italic">Assef.</span>
+      </h1>
+
+      <div class="space-y-6 max-w-lg">
+        <p class="text-xl md:text-2xl font-light text-neutral-400 leading-relaxed">
+          AI & Data Project Engineer at <a href="https://www.renaultgroup.com" target="_blank" class="text-white border-b border-neutral-700 hover:border-white transition-colors pb-0.5">Renault</a>.
+          Building the future with <a href="https://autoads.pro" target="_blank" class="text-white border-b border-neutral-700 hover:border-white transition-colors pb-0.5">autoads</a>.
         </p>
-        <div
-          class="flex flex-col space-y-4"
-        >
-          <h1
-            class="text-[var(--white)] text-5xl md:text-6xl font-medium text-pretty leading-none"
-          >
-            Développeur <br /> <span id="typewriter" class="inline-block"></span>
-          </h1>
-          <p class="text-md md:text-2xl text-[var(--white-icon)]">
-            Spécialisé dans le développement de solutions 
-            <span class="text-[var(--sec)] shiny-sec">IA</span> innovantes et l'ingénierie logicielle
-          </p>
-        </div>
-        <div class="flex justify-start gap-2 pt-3 md:pt-6">
-          <a
-            target="_blank"
-            href="https://linkedin.com/in/andrew-assef/"
-            aria-label="LinkedIn"
-            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="size-8"
-            >
-              <path
-                d="M18.3362 18.339H15.6707V14.1622C15.6707 13.1662 15.6505 11.8845 14.2817 11.8845C12.892 11.8845 12.6797 12.9683 12.6797 14.0887V18.339H10.0142V9.75H12.5747V10.9207H12.6092C12.967 10.2457 13.837 9.53325 15.1367 9.53325C17.8375 9.53325 18.337 11.3108 18.337 13.6245V18.339H18.3362ZM7.00373 8.57475C6.14573 8.57475 5.45648 7.88025 5.45648 7.026C5.45648 6.1725 6.14648 5.47875 7.00373 5.47875C7.85873 5.47875 8.55173 6.1725 8.55173 7.026C8.55173 7.88025 7.85798 8.57475 7.00373 8.57475ZM8.34023 18.339H5.66723V9.75H8.34023V18.339ZM19.6697 3H4.32923C3.59498 3 3.00098 3.5805 3.00098 4.29675V19.7033C3.00098 20.4202 3.59498 21 4.32923 21H19.6675C20.401 21 21.001 20.4202 21.001 19.7033V4.29675C21.001 3.5805 20.401 3 19.6675 3H19.6697Z"
-              ></path>
-            </svg>
+
+        <p class="text-neutral-500 font-light">
+          I craft intelligent systems that bridge the gap between complex data and human experience.
+        </p>
+
+        <div class="flex gap-6 pt-4">
+          <a href="https://github.com/drewano" target="_blank" aria-label="GitHub" class="text-neutral-400 hover:text-white transition-colors">
+            <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
           </a>
-          <a
-            target="_blank"
-            href="https://github.com/drewano"
-            aria-label="GitHub"
-            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              class="size-8"
-            >
-              <path
-                d="M12.001 2C6.47598 2 2.00098 6.475 2.00098 12C2.00098 16.425 4.86348 20.1625 8.83848 21.4875C9.33848 21.575 9.52598 21.275 9.52598 21.0125C9.52598 20.775 9.51348 19.9875 9.51348 19.15C7.00098 19.6125 6.35098 18.5375 6.15098 17.975C6.03848 17.6875 5.55098 16.8 5.12598 16.5625C4.77598 16.375 4.27598 15.9125 5.11348 15.9C5.90098 15.8875 6.46348 16.625 6.65098 16.925C7.55098 18.4375 8.98848 18.0125 9.56348 17.75C9.65098 17.1 9.91348 16.6625 10.201 16.4125C7.97598 16.1625 5.65098 15.3 5.65098 11.475C5.65098 10.3875 6.03848 9.4875 6.67598 8.7875C6.57598 8.5375 6.22598 7.5125 6.77598 6.1375C6.77598 6.1375 7.61348 5.875 9.52598 7.1625C10.326 6.9375 11.176 6.825 12.026 6.825C12.876 6.825 13.726 6.9375 14.526 7.1625C16.4385 5.8625 17.276 6.1375 17.276 6.1375C17.826 7.5125 17.476 8.5375 17.376 8.7875C18.0135 9.4875 18.401 10.375 18.401 11.475C18.401 15.3125 16.0635 16.1625 13.8385 16.4125C14.201 16.725 14.5135 17.325 14.5135 18.2625C14.5135 19.6 14.501 20.675 14.501 21.0125C14.501 21.275 14.6885 21.5875 15.1885 21.4875C19.259 20.1133 21.9999 16.2963 22.001 12C22.001 6.475 17.526 2 12.001 2Z"
-              ></path>
-            </svg>
+          <a href="https://linkedin.com/in/andrew-assef/" target="_blank" aria-label="LinkedIn" class="text-neutral-400 hover:text-white transition-colors">
+            <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
           </a>
-          <a
-            target="_blank"
-            href="https://huggingface.co/drewano"
-            aria-label="Hugging Face"
-            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-          >
-            <svg 
-              fill="currentColor" 
-              fill-rule="evenodd" 
-              class="size-8"
-              viewBox="0 0 24 24" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <title>HuggingFace</title>
-              <path d="M16.781 3.277c2.997 1.704 4.844 4.851 4.844 8.258 0 .995-.155 1.955-.443 2.857a1.332 1.332 0 011.125.4 1.41 1.41 0 01.2 1.723c.204.165.352.385.428.632l.017.062c.06.222.12.69-.2 1.166.244.37.279.836.093 1.236-.255.57-.893 1.018-2.128 1.5l-.202.078-.131.048c-.478.173-.89.295-1.061.345l-.086.024c-.89.243-1.808.375-2.732.394-1.32 0-2.3-.36-2.923-1.067a9.852 9.852 0 01-3.18.018C9.778 21.647 8.802 22 7.494 22a11.249 11.249 0 01-2.541-.343l-.221-.06-.273-.08a16.574 16.574 0 01-1.175-.405c-1.237-.483-1.875-.93-2.13-1.501-.186-.4-.151-.867.093-1.236a1.42 1.42 0 01-.2-1.166c.069-.273.226-.516.447-.694a1.41 1.41 0 01.2-1.722c.233-.248.557-.391.917-.407l.078-.001a9.385 9.385 0 01-.44-2.85c0-3.407 1.847-6.554 4.844-8.258a9.822 9.822 0 019.687 0zM4.188 14.758c.125.687 2.357 2.35 2.14 2.707-.19.315-.796-.239-.948-.386l-.041-.04-.168-.147c-.561-.479-2.304-1.9-2.74-1.432-.43.46.119.859 1.055 1.42l.784.467.136.083c1.045.643 1.12.84.95 1.113-.188.295-3.07-2.1-3.34-1.083-.27 1.011 2.942 1.304 2.744 2.006-.2.7-2.265-1.324-2.685-.537-.425.79 2.913 1.718 2.94 1.725l.16.04.175.042c1.227.284 3.565.65 4.435-.604.673-.973.64-1.709-.248-2.61l-.057-.057c-.945-.928-1.495-2.288-1.495-2.288l-.017-.058-.025-.072c-.082-.22-.284-.639-.63-.584-.46.073-.798 1.21.12 1.933l.05.038c.977.721-.195 1.21-.573.534l-.058-.104-.143-.25c-.463-.799-1.282-2.111-1.739-2.397-.532-.332-.907-.148-.782.541zm14.842-.541c-.533.335-1.563 2.074-1.94 2.751a.613.613 0 01-.687.302.436.436 0 01-.176-.098.303.303 0 01-.049-.06l-.014-.028-.008-.02-.007-.019-.003-.013-.003-.017a.289.289 0 01-.004-.048c0-.12.071-.266.25-.427.026-.024.054-.047.084-.07l.047-.036c.022-.016.043-.032.063-.049.883-.71.573-1.81.131-1.917l-.031-.006-.056-.004a.368.368 0 00-.062.006l-.028.005-.042.014-.039.017-.028.015-.028.019-.036.027-.023.02c-.173.158-.273.428-.31.542l-.016.054s-.53 1.309-1.439 2.234l-.054.054c-.365.358-.596.69-.702 1.018-.143.437-.066.868.21 1.353.055.097.117.195.187.296.882 1.275 3.282.876 4.494.59l.286-.07.25-.074c.276-.084.736-.233 1.2-.42l.188-.077.065-.028.064-.028.124-.056.081-.038c.529-.252.964-.543.994-.827l.001-.036a.299.299 0 00-.037-.139c-.094-.176-.271-.212-.491-.168l-.045.01c-.044.01-.09.024-.136.04l-.097.035-.054.022c-.559.23-1.238.705-1.607.745h.006a.452.452 0 01-.05.003h-.024l-.024-.003-.023-.005c-.068-.016-.116-.06-.14-.142a.22.22 0 01-.005-.1c.062-.345.958-.595 1.713-.91l.066-.028c.528-.224.97-.483.985-.832v-.04a.47.47 0 00-.016-.098c-.048-.18-.175-.251-.36-.251-.785 0-2.55 1.36-2.92 1.36-.025 0-.048-.007-.058-.024a.6.6 0 01-.046-.088c-.1-.238.068-.462 1.06-1.066l.209-.126c.538-.32 1.01-.588 1.341-.831.29-.212.475-.406.503-.6l.003-.028c.008-.113-.038-.227-.147-.344a.266.266 0 00-.07-.054l-.034-.015-.013-.005a.403.403 0 00-.13-.02c-.162 0-.369.07-.595.18-.637.313-1.431.952-1.826 1.285l-.249.215-.033.033c-.08.078-.288.27-.493.386l-.071.037-.041.019a.535.535 0 01-.122.036h.005a.346.346 0 01-.031.003l.01-.001-.013.001c-.079.005-.145-.021-.19-.095a.113.113 0 01-.014-.065c.027-.465 2.034-1.991 2.152-2.642l.009-.048c.1-.65-.271-.817-.791-.493zM11.938 2.984c-4.798 0-8.688 3.829-8.688 8.55 0 .692.083 1.364.24 2.008l.008-.009c.252-.298.612-.46 1.017-.46.355.008.699.117.993.312.22.14.465.384.715.694.261-.372.69-.598 1.15-.605.852 0 1.367.728 1.562 1.383l.047.105.06.127c.192.396.595 1.139 1.143 1.68 1.06 1.04 1.324 2.115.8 3.266a8.865 8.865 0 002.024-.014c-.505-1.12-.26-2.17.74-3.186l.066-.066c.695-.684 1.157-1.69 1.252-1.912.195-.655.708-1.383 1.56-1.383.46.007.889.233 1.15.605.25-.31.495-.553.718-.694a1.87 1.87 0 01.99-.312c.357 0 .682.126.925.36.14-.61.215-1.245.215-1.898 0-4.722-3.89-8.55-8.687-8.55zm1.857 8.926l.439-.212c.553-.264.89-.383.89.152 0 1.093-.771 3.208-3.155 3.262h-.184c-2.325-.052-3.116-2.06-3.156-3.175l-.001-.087c0-1.107 1.452.586 3.25.586.716 0 1.379-.272 1.917-.526zm4.017-3.143c.45 0 .813.358.813.8 0 .441-.364.8-.813.8a.806.806 0 01-.812-.8c0-.442.364-.8.812-.8zm-11.624 0c.448 0 .812.358.812.8 0 .441-.364.8-.812.8a.806.806 0 01-.813-.8c0-.442.364-.8.813-.8zm7.79-.841c.32-.384.846-.54 1.33-.394.483.146.83.564.878 1.06.048.495-.212.97-.659 1.203-.322.168-.447-.477-.767-.585l.002-.003c-.287-.098-.772.362-.925.079a1.215 1.215 0 01.14-1.36zm-4.323 0c.322.384.377.92.14 1.36-.152.283-.64-.177-.925-.079l.003.003c-.108.036-.194.134-.273.24l-.118.165c-.11.15-.22.262-.377.18a1.226 1.226 0 01-.658-1.204c.048-.495.395-.913.878-1.059a1.262 1.262 0 011.33.394z"></path>
-            </svg>
+          <a href="https://huggingface.co/drewano" target="_blank" aria-label="Hugging Face" class="text-neutral-400 hover:text-white transition-colors">
+             <svg role="img" viewBox="0 0 24 24" class="w-6 h-6 fill-current" xmlns="http://www.w3.org/2000/svg"><path d="M7.74 3.006a2.25 2.25 0 0 1 2.25 2.25v2.22l.535.536a2.25 2.25 0 0 1 .659 1.59v.505a4.5 4.5 0 0 0 1.632 3.473c.448.365.455.776.455.776l.004.813c.896-.282 2.296-1.026 3.016-2.61a2.25 2.25 0 0 0-.256-2.45l-.75-.75h2.249a2.25 2.25 0 0 1 2.25 2.25v2.544l.805.402a2.25 2.25 0 0 1 1.244 2.012v.16a6.76 6.76 0 0 1-2.583 5.342l-.46.345a2.25 2.25 0 0 0-.9 1.8v1.642a2.25 2.25 0 0 1-2.25 2.25h-1.396a2.25 2.25 0 0 0-2.25 2.25v.754a2.25 2.25 0 0 1-2.25 2.25H11.25a2.25 2.25 0 0 1-2.25-2.25v-.754a2.25 2.25 0 0 0-2.25-2.25H5.354a2.25 2.25 0 0 1-2.25-2.25v-1.642a2.25 2.25 0 0 0-.9-1.8l-.46-.345A6.76 6.76 0 0 1-.84 16.592v-.16a2.25 2.25 0 0 1 1.243-2.012l.806-.403V11.473a2.25 2.25 0 0 1 2.25-2.25h2.25l-.75.75a2.25 2.25 0 0 0-.257 2.45c.72 1.584 2.12 2.328 3.016 2.61l.004-.813s.007-.41.455-.776A4.5 4.5 0 0 0 9.81 10.02v-.505a2.25 2.25 0 0 1 .66-1.591l.534-.536v-2.133a2.25 2.25 0 0 1 2.25-2.25Zm4.872 7.822c-1.352 0-2.448 1.096-2.448 2.448s1.096 2.448 2.448 2.448 2.448-1.096 2.448-2.448-1.096-2.448-2.448-2.448ZM7.995 15.356c.783 0 1.419.636 1.419 1.42s-.636 1.419-1.42 1.419-1.419-.636-1.419-1.419.636-1.42 1.42-1.42Zm8.01 0c.784 0 1.42.636 1.42 1.42s-.636 1.419-1.42 1.419-1.419-.636-1.419-1.419.635-1.42 1.419-1.42Z"/></svg>
           </a>
-          <a
-            target="_blank"
-            href="mailto:assef.andrew@gmail.com"
-            aria-label="Email"
-            class="text-[var(--white-icon)] hover:text-white transition duration-300 ease-in-out border border-1 border-[var(--white-icon-tr)] p-3 rounded-xl bg-[#1414149c] hover:bg-[var(--white-icon-tr)]"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="2.1em"
-              height="2.1em"
-              viewBox="0 0 24 24"
-            >
-              <path
-                fill="currentColor"
-                d="m18.73 5.41l-1.28 1L12 10.46L6.55 6.37l-1.28-1A2 2 0 0 0 2 7.05v11.59A1.36 1.36 0 0 0 3.36 20h3.19v-7.72L12 16.37l5.45-4.09V20h3.19A1.36 1.36 0 0 0 22 18.64V7.05a2 2 0 0 0-3.27-1.64"
-              ></path>
-            </svg>
+          <a href="mailto:assef.andrew@gmail.com" aria-label="Email" class="text-neutral-400 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-6"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
           </a>
         </div>
       </div>
     </div>
 
-    <LogoWall />
-
-    <div class="flex flex-col lg:flex-row items-center gap-8">
-      <SkillsList client:load />
-      <div
-        class="flex justify-center md:w-full md:h-[292px] size-[290px] pt-3 md:pt-9 md:ml-16"
-      >
-        <LetterGlitch
-          client:load
-          glitchColors={["#00ff41", "#0d4b16", "#003b00"]}
-          glitchSpeed={20}
-          centerVignette={false}
-          outerVignette={true}
-          smooth={true}
-        />
+    <div class="w-full md:w-1/3 mt-8 md:mt-0 relative group">
+      <div class="absolute -inset-2 bg-gradient-to-tr from-neutral-800 to-transparent opacity-20 blur-xl group-hover:opacity-40 transition-opacity duration-700"></div>
+      <Image
+        src={profileImage}
+        alt="Andrew Assef"
+        class="w-full aspect-[3/4] object-cover grayscale contrast-125 brightness-90 hover:grayscale-0 hover:brightness-100 transition-all duration-700 ease-in-out"
+      />
+      <div class="absolute bottom-4 right-4 text-xs font-mono text-white/50 tracking-widest">
+        EST. 2025
       </div>
     </div>
   </div>
 </section>
-
-<style is:global>
-  .shiny-sec {
-    background: linear-gradient(135deg, #00ff41 25%, #b3ffcc 50%, #00ff41 75%);
-    background-size: 400% 100%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-    animation: shine 3s linear infinite;
-  }
-
-  @keyframes shine {
-    0% {
-      background-position: 100% 50%;
-    }
-    30%,
-    70% {
-      background-position: 0% 50%;
-    }
-  }
-  
-  @keyframes blink {
-    0%, 100% {
-      opacity: 1;
-    }
-    50% {
-      opacity: 0;
-    }
-  }
-  
-  .animate-blink {
-    animation: blink 0.8s infinite;
-  }
-</style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const profileContainer = document.getElementById('profile-container');
-    const profileImage = document.getElementById('profile-image');
-    const asciImage = document.getElementById('asci-image');
-    const greeting = document.getElementById('greeting');
-    
-    profileContainer.addEventListener('click', () => {
-      if (profileImage.classList.contains('hidden')) {
-        profileImage.classList.remove('hidden');
-        asciImage.classList.add('hidden');
-        greeting.innerHTML = 'Bonjour, je suis <span class="text-[var(--sec)]">Andrew Assef</span>';
-      } else {
-        profileImage.classList.add('hidden');
-        asciImage.classList.remove('hidden');
-        greeting.innerHTML = 'Bonjour, je suis <span class="text-[var(--sec)]">@drewano</span>';
-      }
-    });
-
-    // Animation typewriter
-    const typewriterElement = document.getElementById('typewriter');
-    const text = "Intelligence Artificielle";
-    let index = 0;
-    const cursorHtml = '<span class="inline-block border-r-4 border-[var(--sec)] animate-blink">&nbsp;</span>';
-    
-    function type() {
-      if (index < text.length) {
-        // Afficher le texte déjà tapé
-        const currentText = text.substring(0, index);
-        // Ajouter le curseur avant la prochaine lettre à taper
-        typewriterElement.innerHTML = currentText + cursorHtml;
-        
-        // Après un court délai, ajouter la lettre
-        setTimeout(() => {
-          index++;
-          const newText = text.substring(0, index);
-          typewriterElement.innerHTML = newText + cursorHtml;
-          
-          // Continuer l'animation
-          setTimeout(type, 70);
-        }, 50);
-      } else {
-        // Animation terminée, afficher le texte complet sans curseur
-        typewriterElement.innerHTML = text;
-      }
-    }
-    
-    // Démarrer l'animation après un court délai
-    setTimeout(() => {
-      typewriterElement.innerHTML = cursorHtml;
-      setTimeout(type, 100);
-    }, 500);
-  });
-</script>
