@@ -1,6 +1,4 @@
 ---
-import Spotlight from "../components/Spotlight.astro";
-
 interface Props {
   title: string;
 }
@@ -30,7 +28,6 @@ const { title } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-ide-bg text-ide-fg font-mono antialiased overflow-hidden h-screen w-screen selection:bg-ide-accent/30 selection:text-ide-accent">
-    <Spotlight />
     <div class="fixed inset-0 pointer-events-none opacity-[0.03] z-50 bg-[url('https://grainy-gradients.vercel.app/noise.svg')]"></div>
     <main class="h-full w-full flex flex-col relative z-10">
       <slot />
